@@ -38,6 +38,16 @@ body {
   scroll-margin-top: 8.5rem;
 }
 
+.hero-shell {
+  padding-top: 11.5rem;
+}
+
+@media (width >= 768px) {
+  .hero-shell {
+    padding-top: 11rem;
+  }
+}
+
 .section-container {
   @apply mx-auto max-w-6xl;
 }
@@ -273,7 +283,24 @@ body {
 
 @media (max-width: 768px) {
   .hat-decoration {
-    display: none;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.6rem;
+    width: 3.25rem;
+  }
+
+  .hero-card {
+    padding-top: 6rem;
+  }
+
+  .hat-string {
+    height: 18px;
+  }
+
+  .hat-tag {
+    top: calc(72% + 18px);
+    font-size: 0.9rem;
+    padding: 0.14rem 0.3rem 0.18rem;
   }
 }
 

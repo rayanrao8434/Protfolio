@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion"
+import hatImage from "../../hat.svg"
 
 const GitHubIcon = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden="true">
@@ -28,15 +29,20 @@ const PhoneIcon = () => (
 
 function Hero() {
   return (
-    <section id="top" className="section-shell relative pt-32 md:pt-44">
+    <section id="top" className="section-shell hero-shell relative">
       <p className="end-hint">note at the end</p>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="sketch-card sketch-card-flat taped mx-auto max-w-4xl px-6 py-10 text-center md:px-10"
+          className="hero-card sketch-card sketch-card-flat taped mx-auto max-w-4xl px-6 py-10 text-center md:px-10"
         >
+          <div className="hat-decoration" role="img" aria-label="Floating hat with a Hire Me tag">
+            <img src={hatImage} alt="" />
+            <span className="hat-string" />
+            <span className="hat-tag">Hire Me</span>
+          </div>
           <p className="sketch-kicker mb-2">
             Second Year B.S. Data Science · MNSUAM
           </p>

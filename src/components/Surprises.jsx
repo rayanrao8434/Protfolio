@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import hatImage from "../../hat.svg"
 
 const Star = ({ className = "h-6 w-6" }) => (
   <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
@@ -105,11 +104,6 @@ function Surprises() {
             <Star />
           </span>
         ))}
-      </div>
-      <div className="hat-decoration" role="img" aria-label="Floating hat with a Hire Me tag">
-        <img src={hatImage} alt="" />
-        <span className="hat-string" />
-        <span className="hat-tag">Hire Me</span>
       </div>
       {bits.map((bit) => (
         <span
