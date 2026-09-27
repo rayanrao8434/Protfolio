@@ -1,0 +1,8 @@
+.sketch-card {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.sketch-card:hover {
+  transform: rotate(-0.4deg) translateY(-4px);
+  box-shadow: 8px 8px 0 #a5d0b2;
+}
