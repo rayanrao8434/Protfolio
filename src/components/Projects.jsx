@@ -69,7 +69,7 @@ function Projects() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
-            <article key={project.title} className="sketch-card p-6">
+            <article key={project.title} className="sketch-card sketch-card-small p-6">
               <h3 className="font-display text-4xl font-bold leading-none text-ink">
                 {project.title}
               </h3>

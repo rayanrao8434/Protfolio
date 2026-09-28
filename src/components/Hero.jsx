@@ -72,15 +72,15 @@ function Hero() {
           </p>
 
           <div className="mx-auto mb-8 grid max-w-3xl grid-cols-1 gap-3 text-sm sm:grid-cols-3">
-           <div className="sketch-card sketch-card-flat px-4 py-3 flex flex-col items-center justify-center text-center gap-y-1">
+           <div className="sketch-card sketch-card-small sketch-card-flat px-4 py-3 flex flex-col items-center justify-center text-center gap-y-1">
              <span className="font-semibold">Generative AI</span>
              <span className="text-sm text-gray-700">Certified (HEC Pak Angels)</span>
            </div>
-            <div className="sketch-card sketch-card-flat px-4 py-3 flex flex-col items-center justify-center text-center gap-y-1">
+            <div className="sketch-card sketch-card-small sketch-card-flat px-4 py-3 flex flex-col items-center justify-center text-center gap-y-1">
               <span className="font-semibold">AgroBot AI System</span>
               <span className="text-sm text-gray-700">30% Crop Loss Risk Reduction</span>
            </div>
-            <div className="sketch-card sketch-card-flat px-4 py-3 flex flex-col items-center justify-center text-center gap-y-1">
+            <div className="sketch-card sketch-card-small sketch-card-flat px-4 py-3 flex flex-col items-center justify-center text-center gap-y-1">
                  <span className="font-semibold">Data Science & AI</span>
                  <span className="text-sm text-gray-700">Bootcamp Certified (DataCrumbs)</span>
             </div>

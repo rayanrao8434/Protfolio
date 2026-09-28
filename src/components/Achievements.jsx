@@ -61,7 +61,7 @@ function Achievements() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="sketch-card p-6 text-center"
+              className="sketch-card sketch-card-small p-6 text-center"
             >
               <div className="mb-3 flex justify-center text-blush-700">{achievement.icon}</div>
               <h3 className="font-display text-4xl font-bold leading-none text-ink">

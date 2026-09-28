@@ -80,7 +80,7 @@ function Skills() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: index * 0.04 }}
-              className="sketch-card p-6"
+              className="sketch-card sketch-card-small p-6"
             >
               <h3 className="font-display text-3xl font-bold text-ink">{category.title}</h3>
               <div className="mt-4 flex flex-wrap gap-2">

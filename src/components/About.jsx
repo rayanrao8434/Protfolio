@@ -61,7 +61,7 @@ function About() {
 
         <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="sketch-card px-4 py-5 text-center">
+            <div key={stat.label} className="sketch-card sketch-card-small px-4 py-5 text-center">
               <div className="mb-2 flex justify-center text-blush-700">{stat.icon}</div>
               <p className="font-display text-4xl font-bold text-ink">{stat.value}</p>
               <p className="text-inksoft">{stat.label}</p>

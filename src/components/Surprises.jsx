@@ -29,7 +29,6 @@ let whisperIndex = 0
 
 function Surprises() {
   const [bits, setBits] = useState([])
-  const [sparks, setSparks] = useState([])
   const [whisper, setWhisper] = useState(null)
 
   useEffect(() => {
@@ -66,23 +65,9 @@ function Surprises() {
       }, 950)
     }
 
-    let last = 0
-    const onMove = (event) => {
-      const now = Date.now()
-      if (now - last < 160) return
-      last = now
-      const id = now
-      setSparks((current) => [...current, { id, x: event.clientX, y: event.clientY }].slice(-10))
-      window.setTimeout(() => {
-        setSparks((current) => current.filter((spark) => spark.id !== id))
-      }, 700)
-    }
-
     window.addEventListener("sketch-burst", onBurst)
-    window.addEventListener("pointermove", onMove)
     return () => {
       window.removeEventListener("sketch-burst", onBurst)
-      window.removeEventListener("pointermove", onMove)
     }
   }, [])
 
@@ -120,10 +105,6 @@ function Surprises() {
           {whisper.text}
         </span>
       )}
-
-      {sparks.map((spark) => (
-        <span key={spark.id} className="spark" style={{ left: spark.x, top: spark.y }} />
-      ))}
 
     </>
   )

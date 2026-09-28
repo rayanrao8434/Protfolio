@@ -54,7 +54,20 @@ body {
 
 .section-heading {
   font-family: Caveat, cursive;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 0.12em;
+  background-image: linear-gradient(183deg, transparent 65%, var(--marker-color, #f5d76e) 65% 91%, transparent 91%);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 100%;
+  transition: background-size 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
   @apply text-center text-6xl font-bold leading-none text-ink md:text-7xl;
+}
+
+.section-heading:hover {
+  background-size: 100% 100%;
 }
 
 .section-subheading {
@@ -67,89 +80,207 @@ body {
 }
 
 .sketch-card {
-  background: #fcfdfb;
-  border: 2.5px solid #247a49;
-  border-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
-  box-shadow: 5px 6px 0 #a5d0b2;
+  position: relative;
+  isolation: isolate;
+  rotate: var(--note-tilt, -0.8deg);
+  background: var(--note-paper, #fff2a8);
+  border: 1px solid rgb(82 69 39 / 14%);
+  border-radius: 3px 5px 4px 3px;
+  box-shadow: 5px 7px 0 rgb(74 63 42 / 12%), 0 12px 20px rgb(53 48 35 / 8%);
+  transition: rotate 220ms ease, translate 220ms ease, box-shadow 220ms ease;
+}
+
+.sketch-card::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: auto;
+  right: -36px;
+  bottom: -9px;
+  width: 72px;
+  height: 18px;
+  pointer-events: none;
+  transform: rotate(-45deg);
+  background: var(--tape-color, rgb(255 255 255 / 70%));
+  border: 1px solid rgb(100 93 75 / 12%);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 55%) inset;
+}
+
+.sketch-card::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -9px;
+  left: -36px;
+  width: 72px;
+  height: 18px;
+  pointer-events: none;
+  transform: rotate(-45deg);
+  background: var(--tape-color, rgb(255 255 255 / 70%));
+  border: 1px solid rgb(100 93 75 / 12%);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 55%) inset;
+}
+
+.sketch-card-small::before {
+  display: none;
+}
+
+.sketch-card:nth-child(4n + 2) {
+  --note-paper: #ffdce5;
+  --note-tilt: 0.9deg;
+  --marker-color: #f5a9bd;
+  --tape-color: rgb(255 249 250 / 76%);
+}
+
+.sketch-card:nth-child(4n + 3) {
+  --note-paper: #d9f0dc;
+  --note-tilt: -1.1deg;
+  --marker-color: #8bc99b;
+  --tape-color: rgb(248 255 249 / 76%);
+}
+
+.sketch-card:nth-child(4n) {
+  --note-paper: #dcecff;
+  --note-tilt: 0.7deg;
+  --marker-color: #91b8ed;
+  --tape-color: rgb(248 251 255 / 76%);
 }
 
 .sketch-card:nth-child(2n) {
-  border-radius: 18px 225px 18px 255px / 255px 18px 225px 18px;
+  box-shadow: 4px 7px 0 rgb(74 63 42 / 12%), 0 12px 20px rgb(53 48 35 / 8%);
 }
 
 .sketch-card:nth-child(3n) {
-  border-radius: 40px 80px 30px 70px / 70px 30px 80px 40px;
+  --note-paper: #ffe3c6;
+  --marker-color: #f5bd7c;
+  --tape-color: rgb(255 250 243 / 76%);
 }
 
 .sketch-card-flat {
-  border-radius: 28px 48px 22px 56px / 48px 24px 56px 28px;
+  border-radius: 3px 5px 4px 3px;
 }
 
 .sketch-btn,
 .sketch-icon-btn {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  border: 2.5px solid #247a49;
+  border: 1.5px solid rgb(53 83 61 / 48%);
   background: #f8fbf8;
   color: #111a16;
-  box-shadow: 3px 3px 0 #a5d0b2;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  box-shadow: 3px 4px 0 rgb(74 63 42 / 14%);
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
 .sketch-btn {
-  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --marker-color: #f5d76e;
+  border-radius: 3px 4px 3px 5px;
   padding: 0.7rem 1.2rem;
   font-size: 1.05rem;
   font-weight: 700;
 }
 
 .sketch-icon-btn {
-  border-radius: 40% 60% 55% 45% / 55% 42% 58% 45%;
+  --marker-color: #f5a9bd;
+  border-radius: 4px;
   padding: 0.7rem;
 }
 
 .sketch-btn-fill {
-  background: #c9e3d0;
+  background-color: #f8e6a0;
+}
+
+.sketch-btn,
+.sketch-icon-btn,
+.sketch-chip,
+.sketch-nav-link {
+  background-image: linear-gradient(transparent 56%, var(--marker-color, #bfe6c7) 56% 92%, transparent 92%);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0 100%;
+  transition: background-size 360ms cubic-bezier(0.2, 0.7, 0.2, 1), transform 180ms ease, box-shadow 180ms ease;
 }
 
 .sketch-btn:hover,
 .sketch-icon-btn:hover,
 .sketch-chip:hover,
-.sketch-nav-link:hover {
-  background: #e4f1e7;
-  transform: rotate(-1.5deg) translateY(-2px);
-  box-shadow: 5px 5px 0 #74b98a;
+.sketch-nav-link:hover,
+.sketch-btn:focus-visible,
+.sketch-icon-btn:focus-visible,
+.sketch-chip:focus-visible,
+.sketch-nav-link:focus-visible {
+  background-size: 100% 100%;
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 4px 5px 0 rgb(74 63 42 / 18%);
+}
+
+.sketch-btn:active,
+.sketch-icon-btn:active,
+.sketch-chip:active,
+.sketch-nav-link:active {
+  transform: translateY(1px) rotate(0);
+  box-shadow: 1px 2px 0 rgb(74 63 42 / 16%);
+}
+
+.sketch-btn:focus-visible,
+.sketch-icon-btn:focus-visible,
+.sketch-chip:focus-visible,
+.sketch-nav-link:focus-visible {
+  outline: 3px solid #365f43;
+  outline-offset: 3px;
 }
 
 .sketch-chip,
 .sketch-pill,
 .sketch-nav-link {
-  border: 2px solid #3f9a62;
+  border: 1px solid rgb(53 83 61 / 42%);
   background: #f1f8f3;
   color: #111a16;
-  box-shadow: 2px 2px 0 #c9e3d0;
+  box-shadow: 2px 3px 0 rgb(74 63 42 / 12%);
 }
 
 .sketch-chip {
-  border-radius: 255px 12px 225px 12px / 12px 225px 12px 255px;
+  --marker-color: #bfe6c7;
+  border-radius: 2px 4px 3px 2px;
   padding: 0.35rem 0.75rem;
   font-size: 0.95rem;
   font-weight: 700;
 }
 
 .sketch-pill {
-  border-radius: 999px 40px 999px 30px;
+  border-radius: 3px;
   padding: 0.2rem 0.75rem;
   font-size: 0.9rem;
 }
 
 .sketch-nav-link {
-  border-radius: 18px 40px 16px 36px / 30px 16px 36px 18px;
+  --marker-color: #f5a9bd;
+  border-radius: 3px;
   padding: 0.3rem 0.7rem;
   font-size: 0.95rem;
   font-weight: 700;
+}
+
+.sketch-card h2,
+.sketch-card h3,
+.sketch-card h4 {
+  background-image: linear-gradient(transparent 66%, var(--marker-color, #f5d76e) 66% 92%, transparent 92%);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 0 100%;
+  transition: background-size 460ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.sketch-card:hover h2,
+.sketch-card:hover h3,
+.sketch-card:hover h4,
+.sketch-card:focus-within h2,
+.sketch-card:focus-within h3,
+.sketch-card:focus-within h4 {
+  background-size: 100% 100%;
 }
 
 .squiggle {
@@ -206,17 +337,36 @@ body {
   position: relative;
 }
 
-.taped::before {
-  content: "";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  width: 92px;
-  height: 24px;
-  transform: translateX(-50%) rotate(-2deg);
-  background: rgb(165 208 178 / 72%);
-  border: 1.5px solid rgb(36 122 73 / 35%);
-  box-shadow: 0 1px 0 rgb(255 255 255 / 50%) inset;
+@supports (animation-timeline: view()) {
+  .section-heading,
+  .sketch-card h2,
+  .sketch-card h3,
+  .sketch-card h4 {
+    animation: marker-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 75%;
+  }
+}
+
+@keyframes marker-reveal {
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .doodle {
@@ -305,8 +455,7 @@ body {
 }
 
 .burst-bit,
-.whisper,
-.spark {
+.whisper {
   position: fixed;
   z-index: 60;
   pointer-events: none;
@@ -322,15 +471,6 @@ body {
   font-size: 1.7rem;
   color: #185d38;
   animation: whisper 900ms ease-out forwards;
-}
-
-.spark {
-  width: 7px;
-  height: 7px;
-  margin: -3px 0 0 -3px;
-  border-radius: 50%;
-  background: #3f9a62;
-  animation: spark 700ms ease-out forwards;
 }
 
 .end-hint {
@@ -458,13 +598,6 @@ body {
   }
 }
 
-@keyframes spark {
-  to {
-    transform: translateY(-16px) scale(0.2);
-    opacity: 0;
-  }
-}
-
 .gift-spot {
   position: absolute;
   z-index: 35;
@@ -522,8 +655,7 @@ body {
   .hat-decoration,
   .hat-tag,
   .burst-bit,
-  .whisper,
-  .spark {
+  .whisper {
     animation: none;
   }
 }
